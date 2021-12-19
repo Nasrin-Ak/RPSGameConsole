@@ -30,11 +30,13 @@ namespace RPSGameConsole
 
             Console.WriteLine("Please enter number of player(s), 1 or 2?");
             var playerCount = Console.ReadLine().Trim();
+            //validate number of players input
             while (playerCount != "1" && playerCount != "2")
             {
                 Console.WriteLine("Please enter a valid number of player, 1 or 2?");
                 playerCount = Console.ReadLine().Trim();
             }
+            //we have at least one human player
             player1 = new HumanPlayer();
             if (playerCount == "1")
             {
@@ -45,6 +47,7 @@ namespace RPSGameConsole
                 player2 = new HumanPlayer();
             }
 
+            //The first player to win 3 rounds wins and finish the game
             while (player1_Wins < 3 && player2_Wins < 3)
             {
                 //play Game
@@ -81,7 +84,9 @@ namespace RPSGameConsole
                 Console.WriteLine("Congrats! Player2 is winner of this game ");
         }
         
-
+        /// <summary>
+        /// show The players choice and scores after each round of play
+        /// </summary>
         public static void DisplayResults(string choice1, string choice2, GameResult result)
         {
             Console.WriteLine("---------------------------------------------------------");
